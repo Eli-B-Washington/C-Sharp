@@ -10,11 +10,26 @@ using System.Windows.Forms;
 
 namespace MathQuiz
 {
-    public partial class Form1 : Form
+    public partial class plusLeftLabel : Form
     {
-        public Form1()
+        public plusLeftLabel()
         {
             InitializeComponent();
+        }
+
+        private void timeLable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
