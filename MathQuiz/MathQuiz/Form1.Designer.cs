@@ -30,6 +30,7 @@ namespace MathQuiz
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timeLabel = new System.Windows.Forms.Label();
             this.time_left = new System.Windows.Forms.Label();
             this.plusLeftLabel = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@ namespace MathQuiz
             this.dividedLeftLabel = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.time = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.product)).BeginInit();
@@ -64,7 +66,7 @@ namespace MathQuiz
             // 
             this.timeLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLabel.Location = new System.Drawing.Point(272, 9);
+            this.timeLabel.Location = new System.Drawing.Point(214, 49);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(200, 30);
             this.timeLabel.TabIndex = 0;
@@ -74,7 +76,7 @@ namespace MathQuiz
             // 
             this.time_left.AutoSize = true;
             this.time_left.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.time_left.Location = new System.Drawing.Point(165, 14);
+            this.time_left.Location = new System.Drawing.Point(107, 49);
             this.time_left.Name = "time_left";
             this.time_left.Size = new System.Drawing.Size(101, 25);
             this.time_left.TabIndex = 1;
@@ -84,7 +86,7 @@ namespace MathQuiz
             // plusLeftLabel
             // 
             this.plusLeftLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.plusLeftLabel.Location = new System.Drawing.Point(50, 61);
+            this.plusLeftLabel.Location = new System.Drawing.Point(50, 102);
             this.plusLeftLabel.Name = "plusLeftLabel";
             this.plusLeftLabel.Size = new System.Drawing.Size(60, 50);
             this.plusLeftLabel.TabIndex = 2;
@@ -95,7 +97,7 @@ namespace MathQuiz
             // plus
             // 
             this.plus.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.plus.Location = new System.Drawing.Point(116, 61);
+            this.plus.Location = new System.Drawing.Point(116, 102);
             this.plus.Name = "plus";
             this.plus.Size = new System.Drawing.Size(60, 50);
             this.plus.TabIndex = 3;
@@ -105,7 +107,7 @@ namespace MathQuiz
             // plusRightLabel
             // 
             this.plusRightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.plusRightLabel.Location = new System.Drawing.Point(182, 61);
+            this.plusRightLabel.Location = new System.Drawing.Point(182, 102);
             this.plusRightLabel.Name = "plusRightLabel";
             this.plusRightLabel.Size = new System.Drawing.Size(60, 50);
             this.plusRightLabel.TabIndex = 4;
@@ -115,7 +117,7 @@ namespace MathQuiz
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(248, 61);
+            this.label2.Location = new System.Drawing.Point(248, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 50);
             this.label2.TabIndex = 5;
@@ -125,7 +127,7 @@ namespace MathQuiz
             // sum
             // 
             this.sum.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sum.Location = new System.Drawing.Point(314, 69);
+            this.sum.Location = new System.Drawing.Point(314, 110);
             this.sum.Name = "sum";
             this.sum.Size = new System.Drawing.Size(100, 35);
             this.sum.TabIndex = 2;
@@ -134,16 +136,17 @@ namespace MathQuiz
             // difference
             // 
             this.difference.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.difference.Location = new System.Drawing.Point(314, 110);
+            this.difference.Location = new System.Drawing.Point(314, 151);
             this.difference.Name = "difference";
             this.difference.Size = new System.Drawing.Size(100, 35);
             this.difference.TabIndex = 3;
+            this.difference.ValueChanged += new System.EventHandler(this.difference_ValueChanged);
             this.difference.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(248, 102);
+            this.label3.Location = new System.Drawing.Point(248, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 50);
             this.label3.TabIndex = 10;
@@ -153,7 +156,7 @@ namespace MathQuiz
             // minusRightLabel
             // 
             this.minusRightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minusRightLabel.Location = new System.Drawing.Point(182, 102);
+            this.minusRightLabel.Location = new System.Drawing.Point(182, 143);
             this.minusRightLabel.Name = "minusRightLabel";
             this.minusRightLabel.Size = new System.Drawing.Size(60, 50);
             this.minusRightLabel.TabIndex = 9;
@@ -163,7 +166,7 @@ namespace MathQuiz
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(116, 102);
+            this.label5.Location = new System.Drawing.Point(116, 143);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 50);
             this.label5.TabIndex = 8;
@@ -173,7 +176,7 @@ namespace MathQuiz
             // minusLeftLabel
             // 
             this.minusLeftLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minusLeftLabel.Location = new System.Drawing.Point(50, 102);
+            this.minusLeftLabel.Location = new System.Drawing.Point(50, 143);
             this.minusLeftLabel.Name = "minusLeftLabel";
             this.minusLeftLabel.Size = new System.Drawing.Size(60, 50);
             this.minusLeftLabel.TabIndex = 7;
@@ -183,7 +186,7 @@ namespace MathQuiz
             // product
             // 
             this.product.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product.Location = new System.Drawing.Point(314, 151);
+            this.product.Location = new System.Drawing.Point(314, 192);
             this.product.Name = "product";
             this.product.Size = new System.Drawing.Size(100, 35);
             this.product.TabIndex = 4;
@@ -192,7 +195,7 @@ namespace MathQuiz
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(248, 143);
+            this.label7.Location = new System.Drawing.Point(248, 184);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 50);
             this.label7.TabIndex = 15;
@@ -202,7 +205,7 @@ namespace MathQuiz
             // timesRightLabel
             // 
             this.timesRightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timesRightLabel.Location = new System.Drawing.Point(182, 143);
+            this.timesRightLabel.Location = new System.Drawing.Point(182, 184);
             this.timesRightLabel.Name = "timesRightLabel";
             this.timesRightLabel.Size = new System.Drawing.Size(60, 50);
             this.timesRightLabel.TabIndex = 14;
@@ -212,7 +215,7 @@ namespace MathQuiz
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(116, 143);
+            this.label9.Location = new System.Drawing.Point(116, 184);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 50);
             this.label9.TabIndex = 13;
@@ -222,7 +225,7 @@ namespace MathQuiz
             // timesLeftLabel
             // 
             this.timesLeftLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timesLeftLabel.Location = new System.Drawing.Point(50, 143);
+            this.timesLeftLabel.Location = new System.Drawing.Point(50, 184);
             this.timesLeftLabel.Name = "timesLeftLabel";
             this.timesLeftLabel.Size = new System.Drawing.Size(60, 50);
             this.timesLeftLabel.TabIndex = 12;
@@ -232,7 +235,7 @@ namespace MathQuiz
             // quotient
             // 
             this.quotient.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quotient.Location = new System.Drawing.Point(314, 192);
+            this.quotient.Location = new System.Drawing.Point(314, 233);
             this.quotient.Name = "quotient";
             this.quotient.Size = new System.Drawing.Size(100, 35);
             this.quotient.TabIndex = 5;
@@ -241,7 +244,7 @@ namespace MathQuiz
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(248, 184);
+            this.label11.Location = new System.Drawing.Point(248, 225);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(60, 50);
             this.label11.TabIndex = 20;
@@ -251,7 +254,7 @@ namespace MathQuiz
             // dividedRightLabel
             // 
             this.dividedRightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dividedRightLabel.Location = new System.Drawing.Point(182, 184);
+            this.dividedRightLabel.Location = new System.Drawing.Point(182, 225);
             this.dividedRightLabel.Name = "dividedRightLabel";
             this.dividedRightLabel.Size = new System.Drawing.Size(60, 50);
             this.dividedRightLabel.TabIndex = 19;
@@ -261,7 +264,7 @@ namespace MathQuiz
             // label13
             // 
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(116, 184);
+            this.label13.Location = new System.Drawing.Point(116, 225);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 50);
             this.label13.TabIndex = 18;
@@ -272,7 +275,7 @@ namespace MathQuiz
             // dividedLeftLabel
             // 
             this.dividedLeftLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dividedLeftLabel.Location = new System.Drawing.Point(50, 184);
+            this.dividedLeftLabel.Location = new System.Drawing.Point(50, 225);
             this.dividedLeftLabel.Name = "dividedLeftLabel";
             this.dividedLeftLabel.Size = new System.Drawing.Size(60, 50);
             this.dividedLeftLabel.TabIndex = 17;
@@ -283,7 +286,7 @@ namespace MathQuiz
             // 
             this.startButton.AutoSize = true;
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startButton.Location = new System.Drawing.Point(134, 289);
+            this.startButton.Location = new System.Drawing.Point(112, 302);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(132, 36);
             this.startButton.TabIndex = 1;
@@ -296,11 +299,24 @@ namespace MathQuiz
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // time
+            // 
+            this.time.AutoSize = true;
+            this.time.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.time.Location = new System.Drawing.Point(310, 308);
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(60, 24);
+            this.time.TabIndex = 22;
+            this.time.Text = "label1";
+            this.time.Click += new System.EventHandler(this.time_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(484, 361);
+            this.Controls.Add(this.time);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.quotient);
             this.Controls.Add(this.label11);
@@ -324,10 +340,13 @@ namespace MathQuiz
             this.Controls.Add(this.plusLeftLabel);
             this.Controls.Add(this.time_left);
             this.Controls.Add(this.timeLabel);
+            this.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.RightToLeftLayout = true;
+            this.Text = "Math Quiz by Eli Bear";
             this.Load += new System.EventHandler(this.plusLeftLabel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).EndInit();
@@ -365,6 +384,7 @@ namespace MathQuiz
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label time_left;
+        private System.Windows.Forms.Label time;
     }
 }
 

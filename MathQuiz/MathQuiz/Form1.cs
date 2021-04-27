@@ -30,9 +30,11 @@ namespace MathQuiz
         int timeLeft;
 
 
+
         public Form1()
         {
             InitializeComponent();
+            time.Text = DateTime.Now.ToString("dd MMM yyyy");
         }
 
         private void timeLable_Click(object sender, EventArgs e)
@@ -117,6 +119,8 @@ namespace MathQuiz
         {
             StartTheQuiz();
             startButton.Enabled = false;
+ 
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -177,5 +181,19 @@ namespace MathQuiz
             }
         }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void difference_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void time_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
