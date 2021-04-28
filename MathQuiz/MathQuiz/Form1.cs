@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace MathQuiz
 {
@@ -30,7 +31,6 @@ namespace MathQuiz
         int timeLeft;
 
 
-
         public Form1()
         {
             InitializeComponent();
@@ -46,10 +46,6 @@ namespace MathQuiz
 
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void plusLeftLabel_Load(object sender, EventArgs e)
         {
@@ -108,7 +104,9 @@ namespace MathQuiz
             quotient.Value = 0;
 
             // Start the timer.
+
             timeLeft = 30;
+            timeLabel.BackColor = Color.GhostWhite;
             timeLabel.Text = "30 seconds";
             timer1.Start();
 
@@ -143,6 +141,9 @@ namespace MathQuiz
                 // Time Left label.
                 timeLeft--;
                 timeLabel.Text = timeLeft + " seconds";
+                if (timeLeft <= 5) {
+                    timeLabel.BackColor = Color.Red;
+                }
             }
             else
             {
@@ -181,19 +182,41 @@ namespace MathQuiz
             }
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
 
+
+        private void time_Click(object sender, EventArgs e)
+        {     
         }
+
 
         private void difference_ValueChanged(object sender, EventArgs e)
         {
-
+            if (minuend - subtrahend == difference.Value)
+                playaudio();
         }
 
-        private void time_Click(object sender, EventArgs e)
+        private void sum_ValueChanged(object sender, EventArgs e)
         {
-            
+            if (addend1 + addend2 == sum.Value)
+                playaudio();
+        }
+
+        private void product_ValueChanged(object sender, EventArgs e)
+        {
+            if (multiplicand * multiplier == product.Value)
+                playaudio();
+        }
+
+        private void quotient_ValueChanged(object sender, EventArgs e)
+        {
+            if (dividend / divisor == quotient.Value)
+                playaudio();
+        }
+
+        private void playaudio() // defining the function
+        {
+            SoundPlayer audio = new SoundPlayer(MathQuiz.Properties.Resources.hihat); // here WindowsFormsApplication1 is the namespace and Connect is the audio file name
+            audio.Play();
         }
     }
 }
