@@ -305,9 +305,9 @@ namespace MathQuiz
             this.time.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.time.Location = new System.Drawing.Point(310, 308);
             this.time.Name = "time";
-            this.time.Size = new System.Drawing.Size(60, 24);
+            this.time.Size = new System.Drawing.Size(48, 24);
             this.time.TabIndex = 22;
-            this.time.Text = "label1";
+            this.time.Text = "Date";
             this.time.Click += new System.EventHandler(this.time_Click);
             // 
             // Form1
