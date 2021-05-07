@@ -96,7 +96,7 @@ namespace MegaDesk_Bear
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(169, 33);
+            this.label3.Location = new System.Drawing.Point(189, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 24);
             this.label3.TabIndex = 3;
@@ -349,9 +349,8 @@ namespace MegaDesk_Bear
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(84, 33);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(16, 24);
+            this.label17.Size = new System.Drawing.Size(0, 24);
             this.label17.TabIndex = 28;
-            this.label17.Text = "-";
             // 
             // base_price_label
             // 

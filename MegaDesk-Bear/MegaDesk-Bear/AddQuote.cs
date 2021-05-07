@@ -16,42 +16,10 @@ namespace MegaDesk_Bear
         {
             InitializeComponent();
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MainMenu mainMenu = (MainMenu)Tag;
-            mainMenu.Show();
-            Close();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void depth_label_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void rush_order_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void num_drawers_1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void calculate_Click_1(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                MessageBox.Show(desk_width_1.Text, "VALID FORM!");
-
-
                 string name = customer_name_value.Text;
                 int width = int.Parse(desk_width_1.Text);
                 int depth = int.Parse(desk_depth_1.Text);
@@ -62,6 +30,7 @@ namespace MegaDesk_Bear
                 int rush = int.Parse(rush1);
                 DeskQuote deskquote = new DeskQuote(name, width, depth, numDrawers, material, rush);
                 double desk_size = width * depth;
+                string date = DateTime.Now.ToString("MM/dd/yy");
 
                 int material_cost = deskquote.calculateSurfaceMaterialCost(material);
                 double drawer_cost = deskquote.calculateDrawerCost(numDrawers);
@@ -71,7 +40,7 @@ namespace MegaDesk_Bear
                 deskquote.CalculateCost();
 
 
-                DisplayQuote display = new DisplayQuote(name, width, depth, numDrawers, material, rush, total_area, material_cost, drawer_cost, delivery_cost, total);
+                DisplayQuote display = new DisplayQuote(date, name, width, depth, numDrawers, material, rush, total_area, material_cost, drawer_cost, delivery_cost, total);
                 display.Tag = this;
                 display.Show(this);
                 Hide();
@@ -116,27 +85,6 @@ namespace MegaDesk_Bear
             }
         }
 
-        private void desk_depth_1_Validating(object sender, CancelEventArgs e)
-        {
-            int y = 0;
-            if (string.IsNullOrWhiteSpace(desk_depth_1.Text) == false)
-            {
-                y = int.Parse((desk_depth_1.Text));
-            }
-
-            if (string.IsNullOrWhiteSpace(desk_depth_1.Text) || y < 12 || y > 48)
-            {
-                e.Cancel = true;
-                desk_width_1.Focus();
-                errorProvider1.SetError(desk_depth_1, "Enter a number from 12 to 48");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider1.SetError(desk_depth_1, "");
-            }
-        }
-
         private void customer_name_value_Validating(object sender, CancelEventArgs e)
         {
             
@@ -159,5 +107,23 @@ namespace MegaDesk_Bear
             mainMenu.Show();
             Close();
         }
+
+        private void desk_depth_1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            {
+                try
+                {
+                    if (!(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar) ))
+                    {
+                        e.Handled = true;
+                        MessageBox.Show("Enter only digit Values.", "Alert!");
+                    }
+                }
+                catch {
+                    e.Handled = false;
+                }
+            }
+        }
+
     }
-}
+    }

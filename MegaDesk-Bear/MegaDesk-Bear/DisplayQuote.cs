@@ -30,7 +30,7 @@ namespace MegaDesk_Bear
             InitializeComponent();
         }
 
-        public DisplayQuote(string name, int width, int depth, int numDrawers, string material, int rush, double total_area, int material_cost, double drawer_cost, double delivery_cost, double total) {
+        public DisplayQuote(string date, string name, int width, int depth, int numDrawers, string material, int rush, double total_area, int material_cost, double drawer_cost, double delivery_cost, double total) {
             InitializeComponent();
             this.name = name;
             this.width = width;
@@ -47,7 +47,7 @@ namespace MegaDesk_Bear
 
 
             name_label.Text = name;
-            label2.Text = DateTime.Now.ToString();
+            label2.Text = date;
             total_width.Text = width.ToString();
             total_depth.Text = depth.ToString();
 

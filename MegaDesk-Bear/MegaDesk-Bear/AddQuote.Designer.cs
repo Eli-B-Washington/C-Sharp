@@ -69,7 +69,6 @@ namespace MegaDesk_Bear
             this.width_label.Size = new System.Drawing.Size(105, 24);
             this.width_label.TabIndex = 1;
             this.width_label.Text = "Desk Width";
-            this.width_label.Click += new System.EventHandler(this.label1_Click);
             // 
             // depth_label
             // 
@@ -80,7 +79,6 @@ namespace MegaDesk_Bear
             this.depth_label.Size = new System.Drawing.Size(107, 24);
             this.depth_label.TabIndex = 2;
             this.depth_label.Text = "Desk Depth";
-            this.depth_label.Click += new System.EventHandler(this.depth_label_Click);
             // 
             // customer_name
             // 
@@ -146,6 +144,7 @@ namespace MegaDesk_Bear
             this.desktop_material.Name = "desktop_material";
             this.desktop_material.Size = new System.Drawing.Size(120, 124);
             this.desktop_material.TabIndex = 13;
+       
             // 
             // rush_order
             // 
@@ -157,11 +156,10 @@ namespace MegaDesk_Bear
             "5",
             "7",
             "14"});
-            this.rush_order.Location = new System.Drawing.Point(291, 312);
+            this.rush_order.Location = new System.Drawing.Point(291, 316);
             this.rush_order.Name = "rush_order";
             this.rush_order.Size = new System.Drawing.Size(120, 28);
             this.rush_order.TabIndex = 17;
-            this.rush_order.SelectedIndexChanged += new System.EventHandler(this.rush_order_SelectedIndexChanged);
             // 
             // num_drawers_1
             // 
@@ -185,7 +183,6 @@ namespace MegaDesk_Bear
             0,
             0,
             0});
-            this.num_drawers_1.ValueChanged += new System.EventHandler(this.num_drawers_1_ValueChanged);
             // 
             // desk_width_1
             // 
@@ -203,7 +200,7 @@ namespace MegaDesk_Bear
             this.desk_depth_1.Name = "desk_depth_1";
             this.desk_depth_1.Size = new System.Drawing.Size(120, 29);
             this.desk_depth_1.TabIndex = 20;
-            this.desk_depth_1.Validating += new System.ComponentModel.CancelEventHandler(this.desk_depth_1_Validating);
+            this.desk_depth_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.desk_depth_1_KeyPress);
             // 
             // calculate
             // 

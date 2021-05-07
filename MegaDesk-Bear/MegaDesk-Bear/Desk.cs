@@ -8,6 +8,11 @@ namespace MegaDesk_Bear
 {
     public class Desk
     {
+        public const int MAXWIDTH = 24;
+        public const int MINWIDTH = 96;
+        public const int MINDEPTH = 12;
+        public const int MAXDEPTH = 48;
+
         public Desk() { 
         }
 
@@ -18,8 +23,13 @@ namespace MegaDesk_Bear
 
         //public int rush_order { get; set; }
 
-        public const int MINWIDTH = 24;
-
+        public enum DesktopMaterial {
+        Oak,
+        Laminate,
+        Pine,
+        Rosewood,
+        Veneer
+        }
 
     }
 

@@ -8,8 +8,8 @@ namespace MegaDesk_Bear
 {
     public class DeskQuote
     {
-        int deskQuoteId;
-        double deskQuote;
+        //int deskQuoteId;
+        //double deskQuote;
         int basePrice = 200;
         string name;
         int width;
@@ -136,11 +136,6 @@ namespace MegaDesk_Bear
             double surface_area = calculateSurfaceAreaCost(desk.depth, desk.width);
             int surface_material = calculateSurfaceMaterialCost(desk.surfaceMaterial);
             int rush_cost = rushOrderCost(surface_area , rush);
-
-
-
-            
-
 
             double total = calculateTotal(drawer_cost, surface_area, surface_material, rush_cost);
             return total;
