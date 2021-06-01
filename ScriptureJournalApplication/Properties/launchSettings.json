@@ -3,8 +3,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:25172",
-      "sslPort": 44337
+      "applicationUrl": "http://localhost:57610",
+      "sslPort": 44386
     }
   },
   "profiles": {
@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "RazorPagesMovie": {
+    "ScriptureJournalApplication": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,
