@@ -28,7 +28,7 @@ namespace MvcMovie.Models
                         Genre = "Comedy",
                         Price = 7.99M,
                         Rating = "PG",
-                        ImagePath = "~/images/rm.jpg",
+                        ImagePath = "/images/rm.jpg",
                     },
 
                     new Movie
@@ -38,7 +38,7 @@ namespace MvcMovie.Models
                         Genre = "Drama",
                         Price = 8.99M,
                         Rating = "PG",
-                        ImagePath = "~/images/other.jpg",
+                        ImagePath = "/images/other.jpg",
                     },
 
                     new Movie
@@ -48,7 +48,7 @@ namespace MvcMovie.Models
                         Genre = "Documentary",
                         Price = 9.99M,
                         Rating = "PG",
-                        ImagePath = "~/images/meet.jpg",
+                        ImagePath = "/images/meet.jpg",
                     }
 
                 );
