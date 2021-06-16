@@ -20,7 +20,7 @@ namespace MvcMovie.Controllers
         }
 
         // GET: Movies
-        public async Task<IActionResult> Index(string movieGenre, string searchString)
+        public async Task<IActionResult> Index(string movieGenre, string searchString, string SortBy)
         {
             // Use LINQ to get list of genres.
             IQueryable<string> genreQuery = from m in _context.Movie
@@ -40,7 +40,17 @@ namespace MvcMovie.Controllers
                 movies = movies.Where(x => x.Genre == movieGenre);
             }
 
-           var movieGenreVM = new MovieGenreViewModel
+            if (SortBy == "DateNewest")
+            {
+                movies = movies.AsQueryable().OrderByDescending(movies => movies.ReleaseDate);
+            }
+            if (SortBy == "DateOldest")
+            {
+                movies = movies.AsQueryable().OrderBy(movies => movies.ReleaseDate);
+            }
+
+
+            var movieGenreVM = new MovieGenreViewModel
             {
                 Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
                 Movies = await movies.ToListAsync()
@@ -48,6 +58,8 @@ namespace MvcMovie.Controllers
 
             return View(movieGenreVM);
         }
+
+
 
         // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -78,7 +90,7 @@ namespace MvcMovie.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(
-            [Bind("ID,Title,ReleaseDate,Genre,Price, Rating")] Movie movie)
+            [Bind("ID,Title,ReleaseDate,Genre,Price,Rating,ImagePath")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -110,7 +122,7 @@ namespace MvcMovie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating,ImagePath")] Movie movie)
         {
             if (id != movie.Id)
             {

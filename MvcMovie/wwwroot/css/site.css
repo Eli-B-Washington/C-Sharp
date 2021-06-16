@@ -12,6 +12,9 @@ a.navbar-brand {
     margin-left: 25%;
 }
 
+.movie_image img {
+    max-width:50%;
+}
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
