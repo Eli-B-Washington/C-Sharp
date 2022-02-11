@@ -1,0 +1,98 @@
+﻿@page
+@model WebMegaDesk.Pages.Quotes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="AddQuote">Create New</a>
+</p>
+<form>
+    <p>
+        Name/Material:
+        <input type="text" name="SearchString" placeholder="Search" class="form-control col-3 d-inline" value="@Model.SearchString" />
+        <input type="submit" value="find" class="btn btn-primary" />
+        <a asp-page="./Index">Back to full List</a>
+    </p>
+</form>
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.QuoteDateSort" asp-route-searchString="@Model.SearchString" class="@Model.DateSortState">
+                    @Html.DisplayNameFor(model => model.Quote[0].QuoteDate)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.CustomerFirstNameSort" asp-route-searchString="@Model.SearchString" class="@Model.FirstNameSortState">
+                    @Html.DisplayNameFor(model => model.Quote[0].CustomerFirstName)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.CustomerLastNameSort" asp-route-searchString="@Model.SearchString" class="@Model.LastNameSortState">
+                    @Html.DisplayNameFor(model => model.Quote[0].CustomerLastName)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].DeskWidth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].DeskDepth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].DeskDrawerNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].DesktopMaterial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].RushSpeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Quote) {
+        <tr onclick="window.location='./Quotes/DisplayQuote?id=@item.ID'">
+            <td>
+                @Html.DisplayFor(modelItem => item.QuoteDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeskWidth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeskDepth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeskDrawerNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DesktopMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RushSpeed)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-page="./DisplayQuote" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

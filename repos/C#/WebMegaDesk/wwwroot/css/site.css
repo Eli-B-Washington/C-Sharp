@@ -1,0 +1,85 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+.hero {
+    background-image: url("/images/desk.jpeg");
+    height: 600px;
+    max-height: 75%;
+    justify-items: center;
+    align-items: center;
+}
+
+body {
+    background-color: #F0D5CF;
+}
+
+.material-selection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.material img {
+    width: 75px;
+    height: 75px;
+}
+
+.selected-border {
+    border: 2px solid;
+}
+
+.material-selector {
+    display: none;
+}
+
+.material p {
+    font-weight: 500;
+    text-align: center;
+}
+
+
+
+
+/* Custom styles
+-------------------------------------------------- */
+.table a.asc:after {
+    content: " \f107";
+    font-family: FontAwesome;
+}
+
+.table a.desc:after {
+    content: " \f106";
+    font-family: FontAwesome;
+}
+
+.table a:hover {
+    text-decoration: none;
+}
+
+.table-hover tbody tr:hover {
+    cursor:pointer;
+}
+
+header.container {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+@media only screen and (min-width: 992px) {
+    .table-responsive {
+        display: table;
+    }
+}
+
+.btn-primary {
+    background-color: #0a6280;
+}
+
+a {
+    color: #0a6280;
+}
+
+a:hover {
+    color: #7abad0
+}
+

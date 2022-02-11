@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "MegaDesk";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to MegaDesk</h1>
+    <h2 class="py-5"><em>Order Your custom Desk! </em></h2>
+    <div class="hero container">
+        <div class="container h-25"></div>
+        <div class="container h-50 col-lg-5 col-sm-10">
+            <a asp-page="/Quotes/AddQuote" class="btn btn-secondary btn-lg w-100 mt-5">Add Quote</a>
+            <a asp-page="/Quotes/Index" class="btn btn-secondary btn-lg w-100 mt-5">View Quotes</a>
+           
+        </div>
+    </div>
+</div>

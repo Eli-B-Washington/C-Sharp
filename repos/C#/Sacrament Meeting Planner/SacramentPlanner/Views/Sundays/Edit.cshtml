@@ -1,0 +1,119 @@
+﻿@model SacramentPlanner.Models.SpeakerSunday
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<hr />
+<hr />
+<h2>Edit</h2>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Sunday.Id" />
+            <div class="form-group">
+                <label asp-for="Sunday.Date" class="control-label"></label>
+                <input asp-for="Sunday.Date" class="form-control" />
+                <span asp-validation-for="Sunday.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sunday.Theme" class="control-label"></label>
+                <input asp-for="Sunday.Theme" class="form-control" />
+                <span asp-validation-for="Sunday.Theme" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sunday.Conductor" class="control-label"></label>
+                <input asp-for="Sunday.Conductor" class="form-control" />
+                <span asp-validation-for="Sunday.Conductor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sunday.OpeningHymn" class="control-label"></label>
+                <input asp-for="Sunday.OpeningHymn" class="form-control" />
+                <span asp-validation-for="Sunday.OpeningHymn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sunday.ClosingHymn" class="control-label"></label>
+                <input asp-for="Sunday.ClosingHymn" class="form-control" />
+                <span asp-validation-for="Sunday.ClosingHymn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sunday.SacramentHymn" class="control-label"></label>
+                <input asp-for="Sunday.SacramentHymn" class="form-control" />
+                <span asp-validation-for="Sunday.SacramentHymn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sunday.IntermediateSong" class="control-label"></label>
+                <input asp-for="Sunday.IntermediateSong" class="form-control" />
+                <span asp-validation-for="Sunday.IntermediateSong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sunday.OpeningPrayer" class="control-label"></label>
+                <input asp-for="Sunday.OpeningPrayer" class="form-control" />
+                <span asp-validation-for="Sunday.OpeningPrayer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sunday.ClosingPrayer" class="control-label"></label>
+                <input asp-for="Sunday.ClosingPrayer" class="form-control" />
+                <span asp-validation-for="Sunday.ClosingPrayer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />&nbsp;
+                <a asp-action="Index" class="btn btn-default">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Name</a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Speaker.Subject)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Date</a>
+            </th>
+            <th>
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sunday.Date)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SpeakerID" class="btn btn-default">Edit</a>&nbsp;
+                    <a asp-action="Details" asp-route-id="@item.SpeakerID" class="btn btn-default">Details</a>&nbsp;
+                    <a asp-action="Delete" asp-route-id="@item.SpeakerID" class="btn btn-default">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+
+
